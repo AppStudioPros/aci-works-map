@@ -40,12 +40,18 @@ interface NDef {
   id: string; label: string; subtitle: string; detail: string;
   stat?: string; icon: string; color: string;
   nodeType: 'ceo' | 'brain' | 'tool' | 'problem' | 'suggestion' | 'solution';
-  fixedHeight?: number; iconSrc?: string; week: number; x: number; y: number;
+  fixedWidth?: number; fixedHeight?: number; iconSrc?: string; week: number; x: number; y: number;
 }
 
 const allNodeDefs: NDef[] = [
   // CEO — centered under "30 Days" heading
   { id: 'aci', label: 'ACI', fixedHeight: 35, subtitle: 'Adaptive Compound Intelligence', detail: '', iconSrc: 'https://cdn.lordicon.com/wzrwaorf.json', icon: '', color: '#818CF8', nodeType: 'brain', week: 0, x: 320, y: 155 },
+  { id: 'email', label: 'Email', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 70, fixedHeight: 20, week: 1, x: 85, y: 210 },
+  { id: 'messaging', label: 'Messaging', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 70, fixedHeight: 20, week: 1, x: 165, y: 210 },
+  { id: 'calendar', label: 'Calendar', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 70, fixedHeight: 20, week: 1, x: 245, y: 210 },
+  { id: 'projects', label: 'Projects', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 70, fixedHeight: 20, week: 1, x: 325, y: 210 },
+  { id: 'crm', label: 'CRM', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 70, fixedHeight: 20, week: 1, x: 405, y: 210 },
+  { id: 'docs', label: 'Documents', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 70, fixedHeight: 20, week: 1, x: 485, y: 210 },
   { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#38BDF8', nodeType: 'ceo', week: 0, x: 320, y: 20 },
 ];
 
@@ -54,6 +60,12 @@ interface EDef { id: string; source: string; target: string; week: number; label
 
 const allEdgeDefs: EDef[] = [
   { id: 'e-ceo-aci', source: 'ceo', target: 'aci', week: 0 },
+  { id: 'e-aci-email', source: 'aci', target: 'email', week: 1 },
+  { id: 'e-aci-messaging', source: 'aci', target: 'messaging', week: 1 },
+  { id: 'e-aci-calendar', source: 'aci', target: 'calendar', week: 1 },
+  { id: 'e-aci-projects', source: 'aci', target: 'projects', week: 1 },
+  { id: 'e-aci-crm', source: 'aci', target: 'crm', week: 1 },
+  { id: 'e-aci-docs', source: 'aci', target: 'docs', week: 1 },
 ];
 
 // ── Custom node types ──────────────────────────────────
@@ -108,6 +120,7 @@ export default function ACIFlowMap() {
           stat: n.stat,
           icon: n.icon,
           iconSrc: n.iconSrc,
+          fixedWidth: n.fixedWidth,
           fixedHeight: n.fixedHeight,
           color: n.color,
           nodeType: n.nodeType,

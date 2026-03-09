@@ -15,16 +15,17 @@ interface ACINodeData {
   nodeType: 'ceo' | 'brain' | 'tool' | 'problem' | 'suggestion' | 'solution';
   showFixed?: boolean;
   fixedHeight?: number;
+  fixedWidth?: number;
   [key: string]: unknown;
 }
 
 function ACIMapNode({ data }: { data: ACINodeData }) {
-  const { label, subtitle, detail, stat, icon, iconSrc, color, nodeType, showFixed, fixedHeight } = data;
+  const { label, subtitle, detail, stat, icon, iconSrc, color, nodeType, showFixed, fixedHeight, fixedWidth } = data;
   const borderColor = showFixed ? '#34d399' : color;
   const isAnchor = nodeType === 'ceo' || nodeType === 'brain';
 
   return (
-    <div className={`${isAnchor ? 'w-[200px]' : 'min-w-[160px] max-w-[200px]'}`}>
+    <div className={`${fixedWidth ? '' : isAnchor ? 'w-[200px]' : 'min-w-[160px] max-w-[200px]'}`}>
       <Handle type="target" position={Position.Top} className="!w-2 !h-2 !bg-white/20 !border-0" />
       <Handle type="target" position={Position.Left} id="left" className="!w-2 !h-2 !bg-white/20 !border-0" />
 
