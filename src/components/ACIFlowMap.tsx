@@ -45,7 +45,7 @@ interface NDef {
 
 const allNodeDefs: NDef[] = [
   // CEO — centered under "30 Days" heading
-  { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#e09f18', nodeType: 'ceo', week: 0, x: 250, y: 20 },
+  { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#e09f18', nodeType: 'ceo', week: 0, x: 460, y: 20 },
 ];
 
 // ── All Edges ──────────────────────────────────────────
@@ -228,6 +228,7 @@ export default function ACIFlowMap() {
           nodesDraggable={false}
           nodesConnectable={false}
           elementsSelectable={false}
+          defaultViewport={{ x: 0, y: 0, zoom: 1 }}
           panOnDrag={false}
           zoomOnScroll={false}
           zoomOnDoubleClick={false}
