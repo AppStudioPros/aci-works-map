@@ -14,11 +14,12 @@ interface ACINodeData {
   color: string;
   nodeType: 'ceo' | 'brain' | 'tool' | 'problem' | 'suggestion' | 'solution';
   showFixed?: boolean;
+  fixedHeight?: number;
   [key: string]: unknown;
 }
 
 function ACIMapNode({ data }: { data: ACINodeData }) {
-  const { label, subtitle, detail, stat, icon, iconSrc, color, nodeType, showFixed } = data;
+  const { label, subtitle, detail, stat, icon, iconSrc, color, nodeType, showFixed, fixedHeight } = data;
   const borderColor = showFixed ? '#34d399' : color;
   const isAnchor = nodeType === 'ceo' || nodeType === 'brain';
 

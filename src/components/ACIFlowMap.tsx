@@ -40,11 +40,12 @@ interface NDef {
   id: string; label: string; subtitle: string; detail: string;
   stat?: string; icon: string; color: string;
   nodeType: 'ceo' | 'brain' | 'tool' | 'problem' | 'suggestion' | 'solution';
-  iconSrc?: string; week: number; x: number; y: number;
+  fixedHeight?: number; iconSrc?: string; week: number; x: number; y: number;
 }
 
 const allNodeDefs: NDef[] = [
   // CEO — centered under "30 Days" heading
+  { id: 'aci', label: 'ACI', fixedHeight: 55, subtitle: 'Adaptive Compound Intelligence', detail: '', iconSrc: 'https://cdn.lordicon.com/wzrwaorf.json', icon: '', color: '#818CF8', nodeType: 'brain', week: 0, x: 320, y: 155 },
   { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#38BDF8', nodeType: 'ceo', week: 0, x: 320, y: 20 },
 ];
 
@@ -52,6 +53,7 @@ const allNodeDefs: NDef[] = [
 interface EDef { id: string; source: string; target: string; week: number; label?: string; checkpoint?: boolean; }
 
 const allEdgeDefs: EDef[] = [
+  { id: 'e-ceo-aci', source: 'ceo', target: 'aci', week: 0 },
 ];
 
 // ── Custom node types ──────────────────────────────────
@@ -106,6 +108,7 @@ export default function ACIFlowMap() {
           stat: n.stat,
           icon: n.icon,
           iconSrc: n.iconSrc,
+          fixedHeight: n.fixedHeight,
           color: n.color,
           nodeType: n.nodeType,
           showFixed: n.nodeType === 'problem' && currentWeek >= 4,
