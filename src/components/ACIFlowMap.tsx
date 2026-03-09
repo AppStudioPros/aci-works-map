@@ -192,7 +192,7 @@ export default function ACIFlowMap() {
   return (
     <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-4" style={{ height: '80vh', minHeight: 600 }}>
       {/* ── Left Panel ── */}
-      <div className="lg:w-[220px] flex-shrink-0 overflow-y-auto">
+      <div className="lg:w-[264px] flex-shrink-0 overflow-y-auto">
         <div className="space-y-1.5 mb-3">
           {weeks.map(wk => {
             const isCurrent = currentWeek === wk.id;
