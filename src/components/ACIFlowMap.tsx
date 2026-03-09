@@ -189,8 +189,16 @@ export default function ACIFlowMap() {
 
   const weekData = weeks[currentWeek - 1];
 
+  // Auto-grow height based on lowest visible node + padding
+  const mapHeight = useMemo(() => {
+    const visibleNodes = allNodeDefs.filter(n => n.week <= currentWeek || n.week === 0);
+    const maxY = Math.max(...visibleNodes.map(n => n.y));
+    // Node height ~120px + 150px padding
+    return Math.max(500, maxY + 270);
+  }, [currentWeek]);
+
   return (
-    <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-4" style={{ height: '80vh', minHeight: 600 }}>
+    <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-4" style={{ height: mapHeight, minHeight: 500 }}>
       {/* ── Left Panel ── */}
       <div className="lg:w-[264px] flex-shrink-0 overflow-y-auto">
         <div className="space-y-1.5 mb-3">
