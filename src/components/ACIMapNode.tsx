@@ -31,7 +31,7 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
 
       <div
         className="rounded-xl border overflow-hidden bg-[#0D1225]/90 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
-        style={{ borderColor: `${borderColor}35`, boxShadow: `0 0 12px ${borderColor}15` }}
+        style={{ ...(fixedWidth ? { width: fixedWidth, minWidth: fixedWidth, maxWidth: fixedWidth } : {}), ...(fixedHeight ? { height: fixedHeight, overflow: 'hidden' } : {}), borderColor: `${borderColor}35`, boxShadow: `0 0 12px ${borderColor}15` }}
       >
         {/* Header */}
         <div
