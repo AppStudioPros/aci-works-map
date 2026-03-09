@@ -46,12 +46,12 @@ interface NDef {
 const allNodeDefs: NDef[] = [
   // CEO — centered under "30 Days" heading
   { id: 'aci', label: 'ACI', fixedHeight: 35, subtitle: 'Adaptive Compound Intelligence', detail: '', iconSrc: 'https://cdn.lordicon.com/wzrwaorf.json', icon: '', color: '#818CF8', nodeType: 'brain', week: 0, x: 320, y: 155 },
-  { id: 'email', label: 'Email', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: -115, y: 290 },
-  { id: 'messaging', label: 'Messaging', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 75, y: 290 },
-  { id: 'calendar', label: 'Calendar', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 265, y: 290 },
-  { id: 'projects', label: 'Projects', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 455, y: 290 },
-  { id: 'crm', label: 'CRM', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 645, y: 290 },
-  { id: 'docs', label: 'Documents', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 835, y: 290 },
+  { id: 'email', label: 'Email', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 50, fixedHeight: 20, week: 1, x: 120, y: 290 },
+  { id: 'messaging', label: 'Messaging', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 50, fixedHeight: 20, week: 1, x: 190, y: 290 },
+  { id: 'calendar', label: 'Calendar', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 50, fixedHeight: 20, week: 1, x: 260, y: 290 },
+  { id: 'projects', label: 'Projects', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 50, fixedHeight: 20, week: 1, x: 330, y: 290 },
+  { id: 'crm', label: 'CRM', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 50, fixedHeight: 20, week: 1, x: 400, y: 290 },
+  { id: 'docs', label: 'Documents', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', fixedWidth: 50, fixedHeight: 20, week: 1, x: 470, y: 290 },
   { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#38BDF8', nodeType: 'ceo', week: 0, x: 320, y: 20 },
 ];
 
