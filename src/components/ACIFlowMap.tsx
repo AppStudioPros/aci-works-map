@@ -44,66 +44,14 @@ interface NDef {
 }
 
 const allNodeDefs: NDef[] = [
-  // Anchors — top center
-  { id: 'ceo', label: 'CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', icon: '👔', color: C.gold, nodeType: 'ceo', week: 0, x: 400, y: 0 },
-  { id: 'aci', label: 'ACI Brain', subtitle: 'Adaptive Compound Intelligence', detail: 'Learns, connects, builds — smarter every day.', icon: '🧠', color: C.emerald, nodeType: 'brain', week: 0, x: 400, y: 160 },
-
-  // Week 1: Tools — spread around the brain
-  { id: 'email', label: 'Email', subtitle: 'Communications', detail: 'Who talks to who, decision chains.', stat: '● Connected', icon: '📧', color: C.green, nodeType: 'tool', week: 1, x: 50, y: 100 },
-  { id: 'slack', label: 'Messaging', subtitle: 'Slack / Teams', detail: 'Where real decisions happen.', stat: '● Connected', icon: '💬', color: C.cyan, nodeType: 'tool', week: 1, x: 750, y: 100 },
-  { id: 'calendar', label: 'Calendar', subtitle: 'Scheduling', detail: 'Meeting patterns, time allocation.', stat: '● Connected', icon: '📅', color: C.blue, nodeType: 'tool', week: 1, x: 750, y: 280 },
-  { id: 'docs', label: 'Documents', subtitle: 'Files & Reports', detail: 'Who creates, who reads, what\'s stale.', stat: '● Connected', icon: '📄', color: C.purple, nodeType: 'tool', week: 1, x: 50, y: 280 },
-  { id: 'crm', label: 'CRM', subtitle: 'Sales & Pipeline', detail: 'Deal patterns, pipeline health.', stat: '● Connected', icon: '🤝', color: C.orange, nodeType: 'tool', week: 1, x: 50, y: 450 },
-  { id: 'projects', label: 'Projects', subtitle: 'Task Management', detail: 'Task flow, blocked work.', stat: '● Connected', icon: '📋', color: C.teal, nodeType: 'tool', week: 1, x: 400, y: 380 },
-  { id: 'hr', label: 'HR Systems', subtitle: 'People & Culture', detail: 'Team structure, flight risks.', stat: '● Connected', icon: '👥', color: C.pink, nodeType: 'tool', week: 1, x: 750, y: 450 },
-  { id: 'analytics', label: 'Analytics', subtitle: 'Metrics & KPIs', detail: 'Trends tied to work patterns.', stat: '● Connected', icon: '📊', color: C.blue, nodeType: 'tool', week: 1, x: 200, y: 450 },
-  { id: 'security', label: 'Security', subtitle: 'Compliance', detail: 'Access anomalies, compliance.', stat: '● Connected', icon: '🔒', color: C.red, nodeType: 'tool', week: 1, x: 600, y: 450 },
-
-  // Week 2: Problems
-  { id: 'bottleneck', label: 'Bottlenecks', subtitle: '3 critical found', detail: 'Approval chains: 2-day avg delays.', stat: '⏱ 46 hrs/week lost', icon: '🚧', color: C.red, nodeType: 'problem', week: 2, x: 150, y: 580 },
-  { id: 'redundancy', label: 'Redundancy', subtitle: '4 tools overlap', detail: '3 teams, same report, different tools.', stat: '💸 $4,200/mo wasted', icon: '♻️', color: C.red, nodeType: 'problem', week: 2, x: 400, y: 560 },
-  { id: 'risk', label: 'Knowledge Risk', subtitle: '2 key people', detail: '40% institutional knowledge at risk.', stat: '⚠️ Critical', icon: '⚠️', color: C.red, nodeType: 'problem', week: 2, x: 650, y: 580 },
-
-  // Week 3: Suggestions
-  { id: 'qw1', label: 'Quick Win #1', subtitle: 'Cut Meetings', detail: 'Replace 3 meetings with async.', stat: '✋ Approved · 12 hrs/wk', icon: '💡', color: C.gold, nodeType: 'suggestion', week: 3, x: 150, y: 720 },
-  { id: 'qw2', label: 'Quick Win #2', subtitle: 'Consolidate Tools', detail: 'One dashboard, 4 tools gone.', stat: '✋ Approved · $2,100/mo', icon: '💡', color: C.gold, nodeType: 'suggestion', week: 3, x: 400, y: 700 },
-  { id: 'qw3', label: 'Quick Win #3', subtitle: 'Knowledge Capture', detail: 'Auto-capture tribal knowledge.', stat: '✋ Approved · Risk gone', icon: '💡', color: C.gold, nodeType: 'suggestion', week: 3, x: 650, y: 720 },
-
-  // Week 4: Solutions
-  { id: 'sol1', label: 'Smart Workflow', subtitle: 'Custom Built', detail: '2-day delays → instant.', stat: '✅ 46 hrs/week saved', icon: '⚙️', color: C.emerald, nodeType: 'solution', week: 4, x: 150, y: 860 },
-  { id: 'sol2', label: 'Unified Dashboard', subtitle: 'Custom Built', detail: 'One view replaces 4 tools.', stat: '✅ $4,200/mo saved', icon: '📈', color: C.emerald, nodeType: 'solution', week: 4, x: 400, y: 840 },
-  { id: 'sol3', label: 'Knowledge Vault', subtitle: 'Custom Built', detail: 'Zero single points of failure.', stat: '✅ Risk eliminated', icon: '🏦', color: C.emerald, nodeType: 'solution', week: 4, x: 650, y: 860 },
+  // CEO — centered under "30 Days" heading
+  { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', icon: '', color: '#e09f18', nodeType: 'ceo', week: 0, x: 400, y: 20 },
 ];
 
 // ── All Edges ──────────────────────────────────────────
 interface EDef { id: string; source: string; target: string; week: number; label?: string; checkpoint?: boolean; }
 
 const allEdgeDefs: EDef[] = [
-  { id: 'e-ceo-aci', source: 'ceo', target: 'aci', week: 0, label: 'controls' },
-  // Tools → ACI
-  ...['email','slack','calendar','docs','crm','projects','hr','analytics','security'].map(t => (
-    { id: `e-aci-${t}`, source: 'aci', target: t, week: 1, label: 'data' }
-  )),
-  // Problems
-  { id: 'e-aci-bn', source: 'aci', target: 'bottleneck', week: 2, label: 'detected' },
-  { id: 'e-aci-rd', source: 'aci', target: 'redundancy', week: 2, label: 'detected' },
-  { id: 'e-aci-rk', source: 'aci', target: 'risk', week: 2, label: 'detected' },
-  { id: 'e-em-bn', source: 'email', target: 'bottleneck', week: 2 },
-  { id: 'e-pj-bn', source: 'projects', target: 'bottleneck', week: 2 },
-  { id: 'e-an-rd', source: 'analytics', target: 'redundancy', week: 2 },
-  { id: 'e-dc-rd', source: 'docs', target: 'redundancy', week: 2 },
-  { id: 'e-hr-rk', source: 'hr', target: 'risk', week: 2 },
-  // Suggestions
-  { id: 'e-bn-q1', source: 'bottleneck', target: 'qw1', week: 3 },
-  { id: 'e-rd-q2', source: 'redundancy', target: 'qw2', week: 3 },
-  { id: 'e-rk-q3', source: 'risk', target: 'qw3', week: 3 },
-  { id: 'e-aci-q1', source: 'aci', target: 'qw1', week: 3, label: 'suggests', checkpoint: true },
-  { id: 'e-aci-q2', source: 'aci', target: 'qw2', week: 3, label: 'suggests', checkpoint: true },
-  { id: 'e-aci-q3', source: 'aci', target: 'qw3', week: 3, label: 'suggests', checkpoint: true },
-  // Solutions
-  { id: 'e-q1-s1', source: 'qw1', target: 'sol1', week: 4, label: 'builds' },
-  { id: 'e-q2-s2', source: 'qw2', target: 'sol2', week: 4, label: 'builds' },
-  { id: 'e-q3-s3', source: 'qw3', target: 'sol3', week: 4, label: 'builds' },
 ];
 
 // ── Custom node types ──────────────────────────────────
