@@ -2,6 +2,7 @@
 
 import { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
+import LordIcon from './LordIcon';
 
 interface ACINodeData {
   label: string;
@@ -9,6 +10,7 @@ interface ACINodeData {
   detail: string;
   stat?: string;
   icon: string;
+  iconSrc?: string;
   color: string;
   nodeType: 'ceo' | 'brain' | 'tool' | 'problem' | 'suggestion' | 'solution';
   showFixed?: boolean;
@@ -16,7 +18,7 @@ interface ACINodeData {
 }
 
 function ACIMapNode({ data }: { data: ACINodeData }) {
-  const { label, subtitle, detail, stat, icon, color, nodeType, showFixed } = data;
+  const { label, subtitle, detail, stat, icon, iconSrc, color, nodeType, showFixed } = data;
   const borderColor = showFixed ? '#34d399' : color;
   const isAnchor = nodeType === 'ceo' || nodeType === 'brain';
 
@@ -37,10 +39,14 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
           <div className="flex items-center gap-2">
             <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: borderColor }} />
             <span className={`${isAnchor ? 'text-[13px]' : 'text-[12px]'} font-semibold text-white`}>
-              {showFixed ? '✅ ' : ''}{label}
+              {showFixed ? '\u2705 ' : ''}{label}
             </span>
           </div>
-          <span className={`${isAnchor ? 'text-lg' : 'text-base'}`}>{showFixed ? '✅' : icon}</span>
+          {iconSrc ? (
+            <LordIcon src={iconSrc} trigger="hover" size={isAnchor ? 28 : 24} colors={`primary:${borderColor},secondary:${borderColor}`} />
+          ) : icon ? (
+            <span className={`${isAnchor ? 'text-lg' : 'text-base'}`}>{showFixed ? '\u2705' : icon}</span>
+          ) : null}
         </div>
 
         {/* Subtitle */}
@@ -48,7 +54,7 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
           <div className="text-[9px] text-white/25 uppercase tracking-wider">
             {showFixed ? 'Resolved' : nodeType === 'tool' ? 'Integration' : nodeType === 'problem' ? 'Issue Found' : nodeType === 'suggestion' ? 'Recommendation' : nodeType === 'solution' ? 'Deployed' : 'Control'}
           </div>
-          <div className="text-[11px] text-white/55 font-medium">{showFixed ? 'Problem resolved ✓' : subtitle}</div>
+          <div className="text-[11px] text-white/55 font-medium">{showFixed ? 'Problem resolved \u2713' : subtitle}</div>
         </div>
 
         {/* Detail */}
@@ -60,7 +66,7 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
         {stat && (
           <div className="px-3 py-1.5 border-t" style={{ borderColor: `${borderColor}10` }}>
             <span className="text-[9px] font-bold" style={{ color: showFixed ? '#34d399' : borderColor }}>
-              {showFixed ? '✅ Fixed' : stat}
+              {showFixed ? '\u2705 Fixed' : stat}
             </span>
           </div>
         )}

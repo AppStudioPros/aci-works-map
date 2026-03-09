@@ -40,12 +40,12 @@ interface NDef {
   id: string; label: string; subtitle: string; detail: string;
   stat?: string; icon: string; color: string;
   nodeType: 'ceo' | 'brain' | 'tool' | 'problem' | 'suggestion' | 'solution';
-  week: number; x: number; y: number;
+  iconSrc?: string; week: number; x: number; y: number;
 }
 
 const allNodeDefs: NDef[] = [
   // CEO — centered under "30 Days" heading
-  { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', icon: '', color: '#e09f18', nodeType: 'ceo', week: 0, x: 400, y: 20 },
+  { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#e09f18', nodeType: 'ceo', week: 0, x: 400, y: 20 },
 ];
 
 // ── All Edges ──────────────────────────────────────────
@@ -105,6 +105,7 @@ export default function ACIFlowMap() {
           detail: n.detail,
           stat: n.stat,
           icon: n.icon,
+          iconSrc: n.iconSrc,
           color: n.color,
           nodeType: n.nodeType,
           showFixed: n.nodeType === 'problem' && currentWeek >= 4,
