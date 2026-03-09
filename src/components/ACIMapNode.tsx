@@ -1,0 +1,75 @@
+'use client';
+
+import { memo } from 'react';
+import { Handle, Position } from '@xyflow/react';
+
+interface ACINodeData {
+  label: string;
+  subtitle: string;
+  detail: string;
+  stat?: string;
+  icon: string;
+  color: string;
+  nodeType: 'ceo' | 'brain' | 'tool' | 'problem' | 'suggestion' | 'solution';
+  showFixed?: boolean;
+  [key: string]: unknown;
+}
+
+function ACIMapNode({ data }: { data: ACINodeData }) {
+  const { label, subtitle, detail, stat, icon, color, nodeType, showFixed } = data;
+  const borderColor = showFixed ? '#34d399' : color;
+  const isAnchor = nodeType === 'ceo' || nodeType === 'brain';
+
+  return (
+    <div className={`${isAnchor ? 'min-w-[180px] max-w-[220px]' : 'min-w-[160px] max-w-[200px]'}`}>
+      <Handle type="target" position={Position.Top} className="!w-2 !h-2 !bg-white/20 !border-0" />
+      <Handle type="target" position={Position.Left} id="left" className="!w-2 !h-2 !bg-white/20 !border-0" />
+
+      <div
+        className="rounded-xl border overflow-hidden bg-[#0a0a0f]/90 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+        style={{ borderColor: `${borderColor}35`, boxShadow: `0 0 12px ${borderColor}15` }}
+      >
+        {/* Header */}
+        <div
+          className="px-3 py-2 flex items-center justify-between"
+          style={{ background: `linear-gradient(135deg, ${borderColor}18, transparent)` }}
+        >
+          <div className="flex items-center gap-2">
+            <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: borderColor }} />
+            <span className={`${isAnchor ? 'text-[13px]' : 'text-[12px]'} font-semibold text-white`}>
+              {showFixed ? '✅ ' : ''}{label}
+            </span>
+          </div>
+          <span className={`${isAnchor ? 'text-lg' : 'text-base'}`}>{showFixed ? '✅' : icon}</span>
+        </div>
+
+        {/* Subtitle */}
+        <div className="px-3 py-1.5 border-t" style={{ borderColor: `${borderColor}12` }}>
+          <div className="text-[9px] text-white/25 uppercase tracking-wider">
+            {showFixed ? 'Resolved' : nodeType === 'tool' ? 'Integration' : nodeType === 'problem' ? 'Issue Found' : nodeType === 'suggestion' ? 'Recommendation' : nodeType === 'solution' ? 'Deployed' : 'Control'}
+          </div>
+          <div className="text-[11px] text-white/55 font-medium">{showFixed ? 'Problem resolved ✓' : subtitle}</div>
+        </div>
+
+        {/* Detail */}
+        <div className="px-3 py-1.5 border-t" style={{ borderColor: `${borderColor}08` }}>
+          <div className="text-[9px] text-white/35 leading-relaxed">{detail}</div>
+        </div>
+
+        {/* Stat */}
+        {stat && (
+          <div className="px-3 py-1.5 border-t" style={{ borderColor: `${borderColor}10` }}>
+            <span className="text-[9px] font-bold" style={{ color: showFixed ? '#34d399' : borderColor }}>
+              {showFixed ? '✅ Fixed' : stat}
+            </span>
+          </div>
+        )}
+      </div>
+
+      <Handle type="source" position={Position.Bottom} className="!w-2 !h-2 !bg-white/20 !border-0" />
+      <Handle type="source" position={Position.Right} id="right" className="!w-2 !h-2 !bg-white/20 !border-0" />
+    </div>
+  );
+}
+
+export default memo(ACIMapNode);
