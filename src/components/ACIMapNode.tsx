@@ -24,7 +24,7 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
   const isAnchor = nodeType === 'ceo' || nodeType === 'brain';
 
   return (
-    <div className={`${isAnchor ? 'min-w-[180px] max-w-[220px]' : 'min-w-[160px] max-w-[200px]'}`}>
+    <div className={`${isAnchor ? 'w-[200px]' : 'min-w-[160px] max-w-[200px]'}`}>
       <Handle type="target" position={Position.Top} className="!w-2 !h-2 !bg-white/20 !border-0" />
       <Handle type="target" position={Position.Left} id="left" className="!w-2 !h-2 !bg-white/20 !border-0" />
 

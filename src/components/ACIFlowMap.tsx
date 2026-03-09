@@ -45,7 +45,7 @@ interface NDef {
 
 const allNodeDefs: NDef[] = [
   // CEO — centered under "30 Days" heading
-  { id: 'aci', label: 'ACI', fixedHeight: 55, subtitle: 'Adaptive Compound Intelligence', detail: '', iconSrc: 'https://cdn.lordicon.com/wzrwaorf.json', icon: '', color: '#818CF8', nodeType: 'brain', week: 0, x: 320, y: 155 },
+  { id: 'aci', label: 'ACI', fixedHeight: 45, subtitle: 'Adaptive Compound Intelligence', detail: '', iconSrc: 'https://cdn.lordicon.com/wzrwaorf.json', icon: '', color: '#818CF8', nodeType: 'brain', week: 0, x: 320, y: 155 },
   { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#38BDF8', nodeType: 'ceo', week: 0, x: 320, y: 20 },
 ];
 
