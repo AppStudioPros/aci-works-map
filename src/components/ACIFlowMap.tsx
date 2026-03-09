@@ -46,12 +46,12 @@ interface NDef {
 const allNodeDefs: NDef[] = [
   // CEO — centered under "30 Days" heading
   { id: 'aci', label: 'ACI', fixedHeight: 35, subtitle: 'Adaptive Compound Intelligence', detail: '', iconSrc: 'https://cdn.lordicon.com/wzrwaorf.json', icon: '', color: '#818CF8', nodeType: 'brain', week: 0, x: 320, y: 155 },
-  { id: 'email', label: 'Email', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: -240, y: 200 },
-  { id: 'messaging', label: 'Messaging', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: -50, y: 200 },
-  { id: 'calendar', label: 'Calendar', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 140, y: 200 },
-  { id: 'projects', label: 'Projects', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 330, y: 200 },
-  { id: 'crm', label: 'CRM', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 520, y: 200 },
-  { id: 'docs', label: 'Documents', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 710, y: 200 },
+  { id: 'email', label: 'Email', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: -240, y: 215 },
+  { id: 'messaging', label: 'Messaging', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: -50, y: 215 },
+  { id: 'calendar', label: 'Calendar', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 140, y: 215 },
+  { id: 'projects', label: 'Projects', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 330, y: 215 },
+  { id: 'crm', label: 'CRM', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 520, y: 215 },
+  { id: 'docs', label: 'Documents', subtitle: '', detail: '', icon: '', color: '#38BDF8', nodeType: 'tool', week: 1, x: 710, y: 215 },
   { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#38BDF8', nodeType: 'ceo', week: 0, x: 320, y: 20 },
 ];
 
