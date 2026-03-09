@@ -52,17 +52,21 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
         </div>
 
         {/* Subtitle */}
+        {subtitle ? (
         <div className="px-3 py-1.5 border-t" style={{ borderColor: `${borderColor}12` }}>
           <div className="text-[9px] text-white/25 uppercase tracking-wider">
             {showFixed ? 'Resolved' : nodeType === 'tool' ? 'Integration' : nodeType === 'problem' ? 'Issue Found' : nodeType === 'suggestion' ? 'Recommendation' : nodeType === 'solution' ? 'Deployed' : 'Control'}
           </div>
           <div className="text-[11px] text-white/55 font-medium">{showFixed ? 'Problem resolved \u2713' : subtitle}</div>
         </div>
+        ) : null}
 
         {/* Detail */}
+        {detail ? (
         <div className="px-3 py-1.5 border-t" style={{ borderColor: `${borderColor}08` }}>
           <div className="text-[9px] text-white/35 leading-relaxed">{detail}</div>
         </div>
+        ) : null}
 
         {/* Stat */}
         {stat && (
