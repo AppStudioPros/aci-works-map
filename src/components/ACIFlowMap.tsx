@@ -260,7 +260,7 @@ export default function ACIFlowMap() {
       </div>
 
       {/* ── React Flow Map ── */}
-      <div className="flex-1 rounded-2xl border border-emerald-500/10 overflow-hidden bg-[#060d08]">
+      <div className="flex-1 overflow-hidden bg-transparent">
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -279,7 +279,7 @@ export default function ACIFlowMap() {
           zoomOnPinch={false}
           preventScrolling={false}
         >
-          <Background color="#1a3a2a" gap={40} size={1} />
+          
         </ReactFlow>
       </div>
     </div>
