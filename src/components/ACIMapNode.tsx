@@ -25,7 +25,7 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
   const isAnchor = nodeType === 'ceo' || nodeType === 'brain';
 
   return (
-    <div style={fixedWidth ? { width: fixedWidth } : {}} className={fixedWidth ? '' : isAnchor ? 'w-[200px]' : 'min-w-[160px] max-w-[200px]'}>
+    <div style={fixedWidth ? { width: fixedWidth, maxWidth: fixedWidth, minWidth: fixedWidth } : {}} className={fixedWidth ? 'overflow-hidden' : isAnchor ? 'w-[200px]' : 'min-w-[160px] max-w-[200px]'}>
       <Handle type="target" position={Position.Top} className="!w-2 !h-2 !bg-white/20 !border-0" />
       <Handle type="target" position={Position.Left} id="left" className="!w-2 !h-2 !bg-white/20 !border-0" />
 
@@ -39,8 +39,8 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
           style={{ background: `linear-gradient(135deg, ${borderColor}18, transparent)` }}
         >
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: borderColor }} />
-            <span className={`${isAnchor ? 'text-[13px]' : 'text-[12px]'} font-semibold text-white`}>
+            <div className={`${fixedHeight && fixedHeight <= 20 ? 'w-1.5 h-1.5' : 'w-2.5 h-2.5'} rounded-full flex-shrink-0`} style={{ backgroundColor: borderColor }} />
+            <span className={`${fixedHeight && fixedHeight <= 20 ? 'text-[7px]' : isAnchor ? 'text-[13px]' : 'text-[12px]'} font-semibold text-white`}>
               {showFixed ? '\u2705 ' : ''}{label}
             </span>
           </div>
