@@ -25,7 +25,7 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
   const isAnchor = nodeType === 'ceo' || nodeType === 'brain';
 
   return (
-    <div className={`${fixedWidth ? '' : isAnchor ? 'w-[200px]' : 'min-w-[160px] max-w-[200px]'}`}>
+    <div style={fixedWidth ? { width: fixedWidth } : {}} className={fixedWidth ? '' : isAnchor ? 'w-[200px]' : 'min-w-[160px] max-w-[200px]'}>
       <Handle type="target" position={Position.Top} className="!w-2 !h-2 !bg-white/20 !border-0" />
       <Handle type="target" position={Position.Left} id="left" className="!w-2 !h-2 !bg-white/20 !border-0" />
 
@@ -35,7 +35,7 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
       >
         {/* Header */}
         <div
-          className="px-3 py-2 flex items-center justify-between"
+          className={`${fixedHeight && fixedHeight < 30 ? 'px-2 py-0.5' : 'px-3 py-2'} flex items-center justify-between`}
           style={{ background: `linear-gradient(135deg, ${borderColor}18, transparent)` }}
         >
           <div className="flex items-center gap-2">
