@@ -45,7 +45,7 @@ interface NDef {
 
 const allNodeDefs: NDef[] = [
   // CEO — centered under "30 Days" heading
-  { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#e09f18', nodeType: 'ceo', week: 0, x: 460, y: 20 },
+  { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#e09f18', nodeType: 'ceo', week: 0, x: 220, y: 20 },
 ];
 
 // ── All Edges ──────────────────────────────────────────
