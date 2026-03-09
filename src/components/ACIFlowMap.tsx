@@ -273,8 +273,11 @@ export default function ACIFlowMap() {
           nodesDraggable={false}
           nodesConnectable={false}
           elementsSelectable={false}
-          panOnDrag={true}
-          zoomOnScroll={true}
+          panOnDrag={false}
+          zoomOnScroll={false}
+          zoomOnDoubleClick={false}
+          zoomOnPinch={false}
+          preventScrolling={false}
         >
           <Background color="#1a3a2a" gap={40} size={1} />
         </ReactFlow>
