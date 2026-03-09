@@ -1,3 +1,5 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 
 const ACIFlowMap = dynamic(() => import('@/components/ACIFlowMap'), { ssr: false });
