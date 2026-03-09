@@ -28,7 +28,7 @@ function ACIMapNode({ data }: { data: ACINodeData }) {
       <Handle type="target" position={Position.Left} id="left" className="!w-2 !h-2 !bg-white/20 !border-0" />
 
       <div
-        className="rounded-xl border overflow-hidden bg-[#0a0a0f]/90 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
+        className="rounded-xl border overflow-hidden bg-[#0D1225]/90 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03]"
         style={{ borderColor: `${borderColor}35`, boxShadow: `0 0 12px ${borderColor}15` }}
       >
         {/* Header */}

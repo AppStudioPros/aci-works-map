@@ -30,9 +30,9 @@ const weeks = [
 
 // ── Colors ─────────────────────────────────────────────
 const C = {
-  gold: '#e09f18', green: '#10b981', red: '#ef4444', cyan: '#06b6d4',
-  purple: '#a855f7', emerald: '#34d399', blue: '#3b82f6', orange: '#f97316',
-  pink: '#ec4899', teal: '#14b8a6',
+  gold: '#38BDF8', green: '#38BDF8', red: '#ef4444', cyan: '#38BDF8',
+  purple: '#818CF8', emerald: '#818CF8', blue: '#6366F1', orange: '#0EA5E9',
+  pink: '#818CF8', teal: '#38BDF8',
 };
 
 // ── All Nodes (positioned) ─────────────────────────────
@@ -45,7 +45,7 @@ interface NDef {
 
 const allNodeDefs: NDef[] = [
   // CEO — centered under "30 Days" heading
-  { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#e09f18', nodeType: 'ceo', week: 0, x: 320, y: 20 },
+  { id: 'ceo', label: 'Owner / CEO', subtitle: 'You — always in control', detail: 'Every action confirmed with you first.', iconSrc: 'https://cdn.lordicon.com/hrjifpbq.json', icon: '', color: '#38BDF8', nodeType: 'ceo', week: 0, x: 320, y: 20 },
 ];
 
 // ── All Edges ──────────────────────────────────────────
@@ -157,15 +157,15 @@ export default function ACIFlowMap() {
             const isExpanded = expandedWeeks.has(wk.id);
             return (
               <div key={wk.id} className={`rounded-lg border transition-all duration-500 ${
-                isCurrent ? 'border-emerald-500/30 bg-emerald-500/5' :
-                isPast ? 'border-white/8 bg-white/[0.01]' : 'border-white/5 opacity-30'
+                isCurrent ? 'border-sky-400/30 bg-sky-400/5' :
+                isPast ? 'border-white/8 bg-[#0D1225]/50' : 'border-white/5 opacity-30'
               }`}>
                 <button onClick={() => {
                   if (isPast || isCurrent) { toggleWeek(wk.id); if (!isCurrent) { setCurrentWeek(wk.id); setIsPlaying(false); if (timerRef.current) clearInterval(timerRef.current); } }
                 }} className="w-full flex items-center justify-between px-2 py-1.5 text-left">
                   <div className="flex items-center gap-1.5">
-                    <div className={`w-1.5 h-1.5 rounded-full ${isCurrent ? 'bg-emerald-400 animate-pulse' : isPast ? 'bg-emerald-600' : 'bg-white/15'}`} />
-                    <span className={`text-[9px] font-bold ${isCurrent ? 'text-emerald-300' : isPast ? 'text-white/40' : 'text-white/20'}`}>
+                    <div className={`w-1.5 h-1.5 rounded-full ${isCurrent ? 'bg-sky-400 animate-pulse' : isPast ? 'bg-indigo-400' : 'bg-white/15'}`} />
+                    <span className={`text-[9px] font-bold ${isCurrent ? 'text-sky-300' : isPast ? 'text-white/40' : 'text-white/20'}`}>
                       {wk.title}: {wk.subtitle}
                     </span>
                   </div>
@@ -176,16 +176,16 @@ export default function ACIFlowMap() {
                     <ul className="space-y-1 mb-1.5">
                       {wk.bullets.map((b, i) => (
                         <li key={i} className={`flex items-start gap-1 transition-all ${isCurrent && i < visBullets ? 'opacity-100' : isCurrent ? 'opacity-0' : 'opacity-60'}`}>
-                          <span className="text-emerald-400 text-[8px] mt-0.5">→</span>
+                          <span className="text-sky-400 text-[8px] mt-0.5">→</span>
                           <span className="text-white/50 text-[9px] leading-snug">{b}</span>
                         </li>
                       ))}
                     </ul>
                     <div className={`rounded px-1.5 py-1 text-[8px] ${
-                      wk.id >= 3 ? 'bg-emerald-500/10 border border-emerald-400/15' :
+                      wk.id >= 3 ? 'bg-sky-400/10 border border-sky-400/15' :
                       wk.id === 2 ? 'bg-red-500/10 border border-red-400/15' : 'bg-white/5 border border-white/5'
                     }`}>
-                      <div className={`font-bold ${wk.id >= 3 ? 'text-emerald-400' : wk.id === 2 ? 'text-red-400' : 'text-white/40'}`}>{wk.outcomeStat}</div>
+                      <div className={`font-bold ${wk.id >= 3 ? 'text-sky-400' : wk.id === 2 ? 'text-red-400' : 'text-white/40'}`}>{wk.outcomeStat}</div>
                       <div className="text-white/30 leading-snug">{wk.outcome}</div>
                     </div>
                   </div>
@@ -197,16 +197,16 @@ export default function ACIFlowMap() {
 
         <button onClick={playStory} disabled={isPlaying}
           className={`w-full py-1.5 rounded-lg text-[9px] font-bold transition-all ${
-            isPlaying ? 'bg-emerald-500/10 text-emerald-300/30 cursor-not-allowed'
-            : 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 hover:bg-emerald-500/20'
+            isPlaying ? 'bg-sky-400/10 text-sky-300/30 cursor-not-allowed'
+            : 'bg-sky-400/10 text-sky-300 border border-sky-400/20 hover:bg-sky-400/20'
           }`}>
           {isPlaying ? '▶ Playing...' : '▶ Watch 30-Day Journey'}
         </button>
 
         <div className="mt-3 space-y-0.5 text-[7px]">
           {[
-            [C.emerald, 'ACI System'], [C.gold, 'CEO / Approval'], [C.red, 'Problem Found'],
-            [C.emerald, 'Solution Built'], [C.gold, '✋ Human-in-Loop'],
+            ['#38BDF8', 'ACI System'], ['#818CF8', 'CEO / Approval'], [C.red, 'Problem Found'],
+            [C.emerald, 'Solution Built'], ['#818CF8', '✋ Human-in-Loop'],
           ].map(([c, l]) => (
             <div key={l} className="flex items-center gap-1">
               <div className="w-1.5 h-1.5 rounded-sm" style={{ backgroundColor: c }}></div>
